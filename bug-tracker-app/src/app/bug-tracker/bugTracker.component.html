@@ -1,0 +1,39 @@
+<h1>Bug Tracker</h1>
+<hr>
+<section class="stats">
+	<!--<span class="closed">{{getClosedCount()}}</span>-->
+	<span class="closed">{{bugs | closeCount}}</span>
+	<span> / </span>
+	<span>{{bugs.length}}</span>
+</section>
+<section class="sort">
+	<label for="">Order By :</label>
+	<select [(ngModel)]="bugSortOrder" >
+		<option value="id">Default</option>
+		<option value="name">Name</option>
+		<option value="isClosed">Status</option>
+	</select>
+	<label for="">Descending ? :</label>
+	<input type="checkbox" name="" id="" [(ngModel)]="descendingOrder">
+</section>
+<section class="edit">
+	<label for="">New Bug :</label>
+	<input type="text" name="" id="" [(ngModel)]="newBugName">
+	<input type="button" value="Create" (click)="createBug()">
+</section>
+<section class="list">
+	<ol>
+		<li *ngFor="let currentBug of (bugs | sortPipe:bugSortOrder : descendingOrder)" [ngClass]="{closed: currentBug.isClosed}">
+			<span class="bugname" (click)="onBugClick(currentBug)" >[This is bug ]{{currentBug.name| trimText}}</span>
+			<span><i> - [{{currentBug.id}}]</i></span>
+			<div class="datetime">[{{currentBug.createdAt | elapsed}}]</div>
+			<a href="#">More...</a>
+		</li>
+		
+		<!--<li>
+			<span class="bugname closed">[This is bug - 2]</span>
+			<div class="datetime">[Created At]</div>
+		</li>-->
+	</ol>
+	<input type="button" value="Remove Closed" (click)="onRemoveClosed()">
+</section>

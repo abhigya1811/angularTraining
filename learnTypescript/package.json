@@ -1,0 +1,21 @@
+{
+  "name": "learn-typescript",
+  "version": "0.1.0",
+  "description": "sample app",
+  "main": "dist/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc src/app.ts -outDir dist",
+    "exec":"node dist/app.js"
+  },
+  "keywords": [
+    "demo",
+    "ts",
+    "npm"
+  ],
+  "author": "Abhigya Jain",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^2.4.1"
+  }
+}

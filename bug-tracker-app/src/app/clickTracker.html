@@ -1,0 +1,18 @@
+<html>
+    <head></head>
+<script>
+    var counter=0;
+    function onBtnTrackClick(){
+        ++counter;
+        document.getElementById('divResult').innerHTML=counter;
+    }
+    function init(){
+        var btnTrack=document.getElementById('btnTrack');
+        btnTrack.addEventListener('click',onBtnTrackClick)
+    }
+    window.addEventListener('DOMContentLoaded',init);
+</script>
+<body>
+    <input type="button" id="btnTrack" value="Track"><div id="divResult"></div>
+</body>
+</html>
